@@ -9,6 +9,7 @@ use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\DetailsComponent;
+use App\Http\Livewire\CategoryComponent;
 
 
 /*
@@ -36,6 +37,9 @@ Route::get('/checkout',CheckoutComponent::class);
 
 //Route For Product Details Page
 Route::get('/product/{slug}',DetailsComponent::class)->name('product.details');
+
+//Route for category component
+Route::get('/product-category/{category_slug}',CategoryComponent::class)->name('product.category');
 
 /*Route::middleware([
     'auth:sanctum',

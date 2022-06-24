@@ -9,10 +9,22 @@ use Livewire\Component;
 //import
 use Livewire\WithPagination;
 use Cart;
+use App\Models\Category;
 
 
 class ShopComponent extends Component
 {
+    //Sorting and pagesize
+    public $sorting;
+    public $pagesize;
+    //Life cycle hook for sorting and pagesize
+    public function mount()
+    {
+        $this->sorting = "default";
+        $this->pagesize = 12;
+    }
+
+
     //Add product to the cart function
     public function store($product_id,$product_name,$product_price)
     {
@@ -23,7 +35,23 @@ class ShopComponent extends Component
     use WithPagination;
     public function render()
     {
-        $products = Product::paginate(12);
-        return view('livewire.shop-component',['products'=>$products])->layout("layouts.base");
+        if($this->sorting=='date')
+        {
+            $products = Product::orderBy('created_at','DESC')->paginate($this->pagesize);
+        }
+        else if($this->sorting=='price')
+        {
+            $products = Product::orderBy('regular_price','ASC')->paginate($this->pagesize);
+        }
+        else if($this->sorting== 'price-desc')
+        {
+            $products = Product::orderBy('regular_price','DESC')->paginate($this->pagesize);
+        }
+        else{
+            $products = Product::paginate($this->pagesize);
+        }
+
+        $categories = Category::all();
+        return view('livewire.shop-component',['products'=>$products,'categories'=>$categories])->layout("layouts.base");
     }
 }

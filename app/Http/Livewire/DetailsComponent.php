@@ -13,18 +13,35 @@ use App\Models\Sale;
 class DetailsComponent extends Component
 {
     public $slug;
+    public $qty;
 
     public function mount($slug)
     {
         $this->slug = $slug;
+        $this->qty = 1;
     }
 
     //Add product to the cart function
     public function store($product_id,$product_name,$product_price)
     {
-        Cart::add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
+        Cart::instance('cart')->add($product_id,$product_name,$this->qty,$product_price)->associate('App\Models\Product');
         session()->flash('success_message','Item added in cart');
         return redirect()->route('product.cart');
+    }
+
+    //Function to increase quantity
+    public function increasedQuantity()
+    {
+        $this->qty++;
+    }
+
+    //function to decrease quantity
+    public function decreaseQuantity()
+    {
+        if($this->qty > 1)
+        {
+            $this->qty--;
+        }
     }
 
     public function render()

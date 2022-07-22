@@ -102,6 +102,10 @@
                                                     </li>
 
                                                     <li class="menu-item">
+                                                        <a title="All Coupons" href="{{route('admin.coupons')}}">Manage Coupons</a>
+                                                    </li>
+
+                                                    <li class="menu-item">
                                                         <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                                     </li>
                                                     <form id="logout-form" method="post" action="{{route('logout')}}">

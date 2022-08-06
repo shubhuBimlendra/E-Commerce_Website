@@ -26,7 +26,8 @@ use App\Http\Livewire\WishlistComponent;
 use App\Http\Livewire\Admin\AdminCouponsComponent;
 use App\Http\Livewire\Admin\AdminAddCouponsComponent;
 use App\Http\Livewire\Admin\AdminEditCouponsComponent;
-
+use App\Http\Livewire\ThankyouComponent;
+use App\Http\Livewire\User\UserChangePasswordComponent;
 
 
 /*
@@ -64,6 +65,9 @@ Route::get('/search',SearchComponent::class)->name('product.search');
 //Route for Show All Wishlisted Products
 Route::get('/wishlist',WishlistComponent::class)->name('product.wishlist');
 
+//Route for thank you page
+Route::get('/thanky-ou',ThankyouComponent::class)->name('thankyou');
+
 /*Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -87,6 +91,7 @@ Route::get('/wishlist',WishlistComponent::class)->name('product.wishlist');
 // For User or Customer
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('user/dashboard',UserDashboardComponent::class,)->name('user.dashboard');
+    Route::get('user/change-password',UserChangePasswordComponent::class)->name('user.changepassword');
 });
 
 // For Admin

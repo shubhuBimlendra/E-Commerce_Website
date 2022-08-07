@@ -28,6 +28,8 @@ use App\Http\Livewire\Admin\AdminAddCouponsComponent;
 use App\Http\Livewire\Admin\AdminEditCouponsComponent;
 use App\Http\Livewire\ThankyouComponent;
 use App\Http\Livewire\User\UserChangePasswordComponent;
+use App\Http\Livewire\ContactComponent;
+use App\Http\Livewire\Admin\AdminContactComponent;
 
 
 /*
@@ -67,6 +69,9 @@ Route::get('/wishlist',WishlistComponent::class)->name('product.wishlist');
 
 //Route for thank you page
 Route::get('/thanky-ou',ThankyouComponent::class)->name('thankyou');
+
+//Route for contact page
+Route::get('/contact-us',ContactComponent::class)->name('contact');
 
 /*Route::middleware([
     'auth:sanctum',
@@ -114,6 +119,8 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function(){
     Route::get('/admin/coupons',AdminCouponsComponent::class)->name('admin.coupons');
     Route::get('/admin/coupons/add',AdminAddCouponsComponent::class)->name('admin.addcoupon');
     Route::get('/admin/coupons/edit/{coupon_id}',AdminEditCouponsComponent::class)->name('admin.editcoupon');
+
+    Route::get('/admin/contact-us',AdminContactComponent::class)->name('admin.contact');
 });
 
 

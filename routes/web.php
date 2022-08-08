@@ -30,6 +30,7 @@ use App\Http\Livewire\ThankyouComponent;
 use App\Http\Livewire\User\UserChangePasswordComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\Admin\AdminContactComponent;
+use App\Http\Livewire\Admin\AdminSettingComponent;
 
 
 /*
@@ -121,6 +122,8 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function(){
     Route::get('/admin/coupons/edit/{coupon_id}',AdminEditCouponsComponent::class)->name('admin.editcoupon');
 
     Route::get('/admin/contact-us',AdminContactComponent::class)->name('admin.contact');
+
+    Route::get('/admin/settings',AdminSettingComponent::class)->name('admin.settings');
 });
 
 

@@ -6,6 +6,7 @@ use Livewire\Component;
 
 //Import
 use App\Models\Contact;
+use App\Models\Setting;
 
 class ContactComponent extends Component
 {
@@ -47,6 +48,7 @@ class ContactComponent extends Component
 
     public function render()
     {
-        return view('livewire.contact-component')->layout("layouts.base");
+        $setting = Setting::find(9);
+        return view('livewire.contact-component',['setting'=>$setting])->layout("layouts.base");
     }
 }

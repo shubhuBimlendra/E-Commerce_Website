@@ -22,9 +22,9 @@ class AdminSettingComponent extends Component
     public $youtube;
 
     //Create a life cycle hook method
-    /*public function mount()
+    public function mount()
     {
-        $setting = Setting::find(1);
+        $setting = Setting::find(9);
         if($setting)
         {
             $this->email = $setting->email;
@@ -38,7 +38,7 @@ class AdminSettingComponent extends Component
             $this->instagram = $setting->instagram;
             $this->youtube = $setting->youtube;
         }
-    }*/
+    }
 
     //Create a lifecycle hook method for validation
     public function updated($fields)

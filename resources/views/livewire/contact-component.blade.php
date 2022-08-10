@@ -43,24 +43,7 @@
                 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                     <div class="contact-box contact-info">
                         <div class="wrap-map">
-                            <div class="mercado-google-maps"
-                                 id="az-google-maps57341d9e51968"
-                                 data-hue=""
-                                 data-lightness="1"
-                                 data-map-style="2"
-                                 data-saturation="-100"
-                                 data-modify-coloring="false"
-                                 data-title_maps="Kute themes"
-                                 data-phone="088-465 9965 02"
-                                 data-email="kutethemes@gmail.com"
-                                 data-address="Z115 TP. Thai Nguyen"
-                                 data-longitude="-0.120850"
-                                 data-latitude="51.508742"
-                                 data-pin-icon=""
-                                 data-zoom="16"
-                                 data-map-type="ROADMAP"
-                                 data-map-height="263">
-                            </div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114005.899406129!2d85.86675915442424!3d26.754446981890126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ec4005fb138bb9%3A0x533a64cf0e13c2d1!2sJanakpur!5e0!3m2!1sen!2snp!4v1660112549997!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                         <h2 class="box-title">Contact Detail</h2>
                         <div class="wrap-icon-box">
@@ -69,7 +52,7 @@
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 <div class="right-info">
                                     <b>Email</b>
-                                    <p>Support1@Mercado.com</p>
+                                    <p>{{$setting->email}}</p>
                                 </div>
                             </div>
 
@@ -77,15 +60,15 @@
                                 <i class="fa fa-phone" aria-hidden="true"></i>
                                 <div class="right-info">
                                     <b>Phone</b>
-                                    <p>0123-465-789-111</p>
+                                    <p>{{$setting->phone}}</p>
                                 </div>
                             </div>
 
                             <div class="icon-box-item">
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                                 <div class="right-info">
-                                    <b>Mail Office</b>
-                                    <p>Sed ut perspiciatis unde omnis<br />Street Name, Los Angeles</p>
+                                    <b>Address</b>
+                                    <p>{{$setting->address}}</p>
                                 </div>
                             </div>
 

@@ -6,6 +6,9 @@
         nav .hidden {
             display: block !important;
         }
+        .sclist{
+            list-style:none;
+        }
     </style>
     <div class="container" style="padding: 30px 0;">
         <div class="row">
@@ -33,6 +36,7 @@
                                     <th>Id</th>
                                     <th>Category Name</th>
                                     <th>Slug</th>
+                                    <th>Sub Category</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -42,6 +46,13 @@
                                     <td>{{$category->id}}</td>
                                     <td>{{$category->name}}</td>
                                     <td>{{$category->slug}}</td>
+                                    <td>
+                                        <ul class="sclist">
+                                            @foreach($category->subCategories as $scategory)
+                                            <li><i class="fa fa-caret-right">{{$scategory->name}}</i></li>
+                                            @endforeach
+                                        </ul>
+                                    </td>
                                     <td>
                                         <a href="{{route('admin.editcategory',['category_slug'=>$category->slug])}}"><i class="fa fa-edit"></i></a>
                                         <a href="#" onclick="confirm('Are you sure, You want to delete this category?') || event.stopImmediatePropagation()" wire:click.prevent="deleteCategory({{$category->id}})" style="margin-left:10px;"><i class="fa fa-times fa-2x text-danger"></i></a>

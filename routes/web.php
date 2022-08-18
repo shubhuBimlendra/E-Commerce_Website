@@ -31,6 +31,7 @@ use App\Http\Livewire\User\UserChangePasswordComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\Admin\AdminContactComponent;
 use App\Http\Livewire\Admin\AdminSettingComponent;
+use App\Http\Livewire\User\UserProfileComponent;
 
 
 /*
@@ -98,6 +99,7 @@ Route::get('/contact-us',ContactComponent::class)->name('contact');
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('user/dashboard',UserDashboardComponent::class,)->name('user.dashboard');
     Route::get('user/change-password',UserChangePasswordComponent::class)->name('user.changepassword');
+    Route::get('user/profile',UserProfileComponent::class)->name('user.profile');
 });
 
 // For Admin
